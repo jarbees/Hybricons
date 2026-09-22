@@ -21,7 +21,7 @@ To see Hybricons in effect, open the project in any modern Xcode version (tested
 Keep in mind that Xcode 26.0.1 must be installed in `/Applications/` for Hybricons to work.
 
 ## Icon Configurations
-When using Hybricons keep these three different options for providing icons in mind.
+When using Hybricons keep these three different options for providing icons in mind.  
 An app icon can be provided as an `.appiconset` in an asset catalog, as an Icon Composer `.icon` or as both with the same name.
 - `.appiconset` only
   - Used on all supported iOS versions. 
@@ -34,7 +34,7 @@ An app icon can be provided as an `.appiconset` in an asset catalog, as an Icon 
   - e.g. `Assets.xcassets/Split.appiconset` and `Split.icon` would become one icon that dynamically changes for iOS 26.0+ vs. older versions
 
 ## Project Setup
-1. If not done already, specify a primary app icon in your app target under General -> App Icons and Launch Screen -> App Icon
+1. If not done already, specify a primary app icon in your app target under General -> App Icons and Launch Screen -> App Icon (and enable "Include all app icon assets" if you want alternative app icons)
 2. Add the Hybricons Package to your project in Xcode
 3. In your app target, add HybriconsPlugin in Build Phases -> Run Build Tool Plug-ins
 4. In your app target, add a New Run Script Phase with the following script:
@@ -73,6 +73,6 @@ Hybricons works in four steps
 - The `Assets.car` from the Xcode 26.0.1 pass and the two bundle icons from the modern actool pass are copied into the app bundle. The `Info.plist` is given to Xcode for potential further processing
 
 ## Thanks
-Special thanks to Michael Tsai's blog, and in particular Phil Sulak, who created a reproducible project for macOS.
-Phil Sulak's Solution for macOS: [Tahoe-Sequoia-Hybrid-Icon](https://github.com/psulak/Tahoe-Sequoia-Hybrid-Icon)
+Special thanks to Michael Tsai's blog, and in particular Phil Sulak, who created a reproducible project for macOS.  
+Phil Sulak's Solution for macOS: [Tahoe-Sequoia-Hybrid-Icon](https://github.com/psulak/Tahoe-Sequoia-Hybrid-Icon)  
 Michael Tsai's blog article: [separate Icons for macOS Tahoe vs. Earlier](https://mjtsai.com/blog/2025/08/08/separate-icons-for-macos-tahoe-vs-earlier/)

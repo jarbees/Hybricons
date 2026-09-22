@@ -21,6 +21,7 @@ struct Build {
     let platform: String
     let deploymentTarget: String
     let primaryIcon: String
+    let includeAllAppIconAssets: Bool
     let accentColor: String?
     let developmentLanguage: String
     let targetDevices: [String]
@@ -79,6 +80,7 @@ struct Build {
         platform = try require("PLATFORM_NAME")
         deploymentTarget = try require("IPHONEOS_DEPLOYMENT_TARGET")
         primaryIcon = try require("ASSETCATALOG_COMPILER_APPICON_NAME")
+        includeAllAppIconAssets = bool("ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS")
         accentColor = optional("ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME")
         developmentLanguage = try require("DEVELOPMENT_LANGUAGE")
 

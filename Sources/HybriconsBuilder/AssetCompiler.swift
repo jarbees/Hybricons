@@ -77,13 +77,16 @@ struct AssetCompiler {
         var arguments = [
             "--compile", output.path,
             "--app-icon", build.primaryIcon,
-            "--include-all-app-icons",
             "--enable-on-demand-resources", "NO",
             "--development-region", build.developmentLanguage,
             "--platform", build.platform,
             "--minimum-deployment-target", build.deploymentTarget,
             "--output-partial-info-plist", infoPlist.path
         ]
+        
+        if build.includeAllAppIconAssets {
+            arguments += ["--include-all-app-icons"]
+        }
 
         for device in build.targetDevices {
             arguments += ["--target-device", device]
