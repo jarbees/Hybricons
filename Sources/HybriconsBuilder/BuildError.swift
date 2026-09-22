@@ -5,7 +5,7 @@ enum BuildError: LocalizedError {
     case fallbackGenerationFailed(String)
     case primaryIconNotFound(String)
     case processFailed(String, Int32, String, String)
-    case missingCompiledAsset(URL)
+    case missingCompiledAsset(URL, output: String)
     case xcodeNotFound(version: String, build: String)
     case inputNotFound(URL)
     case unsupportedInput(URL)
@@ -33,8 +33,12 @@ enum BuildError: LocalizedError {
             \(!stderr.isEmpty ? "stderr:\n\(stderr)" : "")
             """
 
-        case .missingCompiledAsset(let url):
-            return "actool did not generate artifact at \(url.path)"
+        case .missingCompiledAsset(let url, let output):
+            return """
+            actool did not generate artifact at \(url.path)
+            
+            \(output)
+            """
             
         case .xcodeNotFound(let version, let build):
             return "Xcode \(version) (\(build)) could not be found"

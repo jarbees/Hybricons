@@ -58,11 +58,11 @@ private func compileIcon(iconURL: URL, developerDir: URL, tempDir: URL) throws -
         "--enable-icon-stack-fallback-generation", "true"
     ]
     
-    _ = try runProcess(actool, arguments: arguments)
+    let result = try runProcess(actool, arguments: arguments)
     
     let carURL = tempDir.appending(path: "Assets.car")
     guard FileManager.default.fileExists(atPath: carURL.path) else {
-        throw BuildError.fallbackGenerationFailed("actool did not produce Assets.car in \(tempDir)")
+        throw BuildError.fallbackGenerationFailed("actool did not produce Assets.car.\n\n\(result.stderr)")
     }
     
     return carURL

@@ -27,8 +27,8 @@
             ]
           },
           "hidden" : false,
-          "image-name" : "new2.svg",
-          "name" : "new2"
+          "image-name" : "modern-circle.svg",
+          "name" : "modern-circle"
         },
         {
           "blend-mode" : "normal",
@@ -38,8 +38,8 @@
               "srgb:0.23004,0.78194,1.00000,1.00000"
             ]
           },
-          "image-name" : "new1.svg",
-          "name" : "new1",
+          "image-name" : "modern-square.svg",
+          "name" : "modern-square",
           "opacity" : 1
         }
       ],

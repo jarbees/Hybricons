@@ -60,14 +60,11 @@ struct AssetCompiler {
         arguments += commonArguments(output: output, infoPlist: infoPlist)
         arguments += additionalArguments
         
-        
-        _ = try runProcess(actool, arguments: arguments)
-        
-        
-        let file = output.appending(path: resultFile)
+        let result = try runProcess(actool, arguments: arguments)
 
+        let file = output.appending(path: resultFile)
         guard FileManager.default.fileExists(atPath: file.path) else {
-            throw BuildError.missingCompiledAsset(file)
+            throw BuildError.missingCompiledAsset(file, output: result.stderr)
         }
         
         return (output, file)
